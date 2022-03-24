@@ -26,7 +26,10 @@ app.use(helmet());
   to the error event (so that errors will be printed to the console).
 */
 let mongoose = require('mongoose');
-let mongoDB = 'mongodb+srv://jlsystem:salmo9423@cluster0.58hyh.mongodb.net/local_library?retryWrites=true&w=majority';
+
+let dev_db_url = 'mongodb+srv://jlsystem:salmo9423@cluster0.58hyh.mongodb.net/local_library?retryWrites=true&w=majority';
+let mongoDB = process.env.MONGODB_URI || dev_db_url;
+
 mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true });
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
