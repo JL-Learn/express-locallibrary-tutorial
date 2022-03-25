@@ -27,7 +27,7 @@ app.use(helmet());
 */
 let mongoose = require('mongoose');
 
-let dev_db_url = 'mongodb+srv://jlsystem:salmo9423@cluster0.58hyh.mongodb.net/local_library?retryWrites=true&w=majority';
+let dev_db_url = 'mongodb+srv://jlsystem:<password>@cluster0.58hyh.mongodb.net/local_library?retryWrites=true&w=majority';
 let mongoDB = process.env.MONGODB_URI || dev_db_url;
 
 mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true });
